@@ -2,6 +2,10 @@ import Layout from '../components/Layout'
 import Link from 'next/link'
 import '../style.css'
 import fetch from 'isomorphic-unfetch'
+import * as React from "react";
+
+
+let postFilter
 
 // helper text truncate function
 const text_truncate = function(str, length, ending) {
@@ -18,92 +22,119 @@ const text_truncate = function(str, length, ending) {
   }
 }
 
-const Index = (props) => (
-  <Layout>
-    <div className="container-md clearfix p-3">
-      <div className="container-lg clearfix">
-        <div className="col-6 float-left p-4 no-pad">
-          <div className="sm-subheading"><h4>RECENT POSTS</h4></div>
-        </div>
-        <div className="col-6 float-left p-4 no-pad">
-          <div className="filters">Posts &middot; Links &middot; <strike>Articles</strike></div>
-        </div>
-      </div>
 
-      <br />
+class Index extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      togglePosts: true
+    }
+    this.handlePostsToggle = this.handlePostsToggle.bind(this)
+  }
 
-      {props.posts.map((post) => (
-        <section className="post">
-          <div className="Subhead-description">
-            January 01, 2018
-          </div>
-          <div className="Subhead">
-            <div className="Subhead-heading">
-              <Link as={`/p/${post._id}`} href={`/post?id=${post._id}`}>
-                <a>{post.title}</a>
-              </Link>
+  handlePostsToggle() {
+    this.setState({
+      togglePosts: !this.state.togglePosts
+    })
+  }
+
+  render() {
+    return (
+      <Layout>
+        <div className="container-md clearfix p-3">
+          <div className="container-lg clearfix">
+            <div className="col-6 float-left p-4 no-pad">
+              {this.state.togglePosts ?
+
+                <div className="sm-subheading"><h4>RECENT POSTS</h4></div>
+
+                : <div className="no-visibility">d</div> }
             </div>
-            <div className="Subhead-description"><i>{post.description}</i></div>
+            <div className="col-6 float-left p-4 no-pad">
+              <div className="filters"><a onClick={this.handlePostsToggle}>Toggle Content</a></div>
+            </div>
           </div>
-          <p>
-            { text_truncate(post.body, 400) }
-          </p>
 
-          <p>&rarr; Read More...</p>
-        </section>
-      ))}
+          <br />
 
-      <div className="sm-subheading-linkblg"><h4>LINKBLOG</h4></div>
+          {this.state.togglePosts ?
 
-      <section className="post">
-        <div className="Subhead-description">
-          January 01, 2018
-        </div>
-        <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
-          everything</a>
-        </div>
-        <div className="permalink">&nbsp; <a href="#">♖</a></div>
-        <p>An interesting piece from the pernicuous perspective of Kant Glab:</p>
-        <div className="blockquote">
-          Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-          roots in a
-          piece of classical Latin literature from 45 BC, making it over 2000 years old
-        </div>
+            <div className="show-posts">
+              {this.props.posts.map((post) => (
+                <section className="post">
+                  <div className="Subhead-description">
+                    January 01, 2018
+                  </div>
+                  <div className="Subhead">
+                    <div className="Subhead-heading">
+                      <Link as={`/p/${post._id}`} href={`/post?id=${post._id}`}>
+                        <a>{post.title}</a>
+                      </Link>
+                    </div>
+                    <div className="Subhead-description"><i>{post.description}</i></div>
+                  </div>
+                  <p>
+                    {text_truncate(post.body, 400)}
+                  </p>
 
-      </section>
+                  <p>&rarr; Read More...</p>
+                </section>
+              ))}
+            </div>
 
-      <section className="post">
-        <div className="Subhead-description">
-          January 01, 2018
-        </div>
-        <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
-          everything</a>
-        </div>
-        <div className="permalink">&nbsp; <a href="#">♖</a></div>
-        <div className="blockquote">
-          Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-          roots in a
-          piece of classical Latin literature from 45 BC, making it over 2000 years old
-        </div>
-        <p>An interesting piece from the pernicuous perspective of Kant Glab:</p>
-      </section>
+            : '' }
 
-      <section className="post">
-        <div className="Subhead-description">
-          January 01, 2018
-        </div>
-        <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
-          everything</a>
-        </div>
-        <div className="permalink">&nbsp; <a href="#">♖</a></div>
-        <div className="blockquote">
-          Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-          roots in a
-          piece of classical Latin literature from 45 BC, making it over 2000 years old
-        </div>
-      </section>
+          <div className="sm-subheading-linkblg"><h4>LINKBLOG</h4></div>
 
-      <style jsx>{`
+          <section className="post">
+            <div className="Subhead-description">
+              January 01, 2018
+            </div>
+            <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
+              everything</a>
+            </div>
+            <div className="permalink">&nbsp; <a href="#">♖</a></div>
+            <p>An interesting piece from the pernicuous perspective of Kant Glab:</p>
+            <div className="blockquote">
+              Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+              roots in a
+              piece of classical Latin literature from 45 BC, making it over 2000 years old
+            </div>
+
+          </section>
+
+          <section className="post">
+            <div className="Subhead-description">
+              January 01, 2018
+            </div>
+            <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
+              everything</a>
+            </div>
+            <div className="permalink">&nbsp; <a href="#">♖</a></div>
+            <div className="blockquote">
+              Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+              roots in a
+              piece of classical Latin literature from 45 BC, making it over 2000 years old
+            </div>
+            <p>An interesting piece from the pernicuous perspective of Kant Glab:</p>
+          </section>
+
+          <section className="post">
+            <div className="Subhead-description">
+              January 01, 2018
+            </div>
+            <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
+              everything</a>
+            </div>
+            <div className="permalink">&nbsp; <a href="#">♖</a></div>
+            <div className="blockquote">
+              Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+              roots in a
+              piece of classical Latin literature from 45 BC, making it over 2000 years old
+            </div>
+          </section>
+
+          <style jsx>{`
 
             body {
               background-color: #fff;
@@ -282,11 +313,26 @@ const Index = (props) => (
               padding: 0 !important;
             }
 
+            .show-posts {
+              display: block;
+            }
+
+            .hide {
+              display: none;
+            }
+
+            .no-visibility {
+              visibility: hidden;
+            }
+
     `}</style>
 
-    </div>
-  </Layout>
-)
+        </div>
+      </Layout>
+    )
+  }
+
+}
 
 
 const myInit = {
