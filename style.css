@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-
 body {
-  background-color: #fff;
-  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #ccc;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
 }
 

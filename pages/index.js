@@ -44,14 +44,15 @@ class Index extends React.Component {
         <div className="container-md clearfix p-3">
           <div className="container-lg clearfix">
             <div className="col-6 float-left p-4 no-pad">
-              {this.state.togglePosts ?
-
-                <div className="sm-subheading"><h4>RECENT POSTS</h4></div>
-
-                : <div className="no-visibility">d</div> }
+                <div className="sm-subheading">
+                  <img src="../static/paragraph.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} />
+                  {this.state.togglePosts ?
+                     <h4>RECENT POSTS</h4>
+                   : <h4>LINKBLOG</h4> }
+                </div>
             </div>
             <div className="col-6 float-left p-4 no-pad">
-              <div className="filters"><a onClick={this.handlePostsToggle}>Toggle Content</a></div>
+              <div className="filters"><a onClick={this.handlePostsToggle}><img src="../static/filter.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
             </div>
           </div>
 
@@ -84,7 +85,12 @@ class Index extends React.Component {
 
             : '' }
 
-          <div className="sm-subheading-linkblg"><h4>LINKBLOG</h4></div>
+          { this.state.togglePosts ?
+          <div className="sm-subheading-linkblg">
+            <img src="../static/paragraph.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} />
+            <h4>LINKBLOG</h4>
+          </div>
+            : '' }
 
           <section className="post">
             <div className="Subhead-description">
@@ -93,7 +99,7 @@ class Index extends React.Component {
             <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
               everything</a>
             </div>
-            <div className="permalink">&nbsp; <a href="#">♖</a></div>
+            <div className="permalink">&nbsp; <a href="#"><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
             <p>An interesting piece from the pernicuous perspective of Kant Glab:</p>
             <div className="blockquote">
               Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
@@ -110,7 +116,7 @@ class Index extends React.Component {
             <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
               everything</a>
             </div>
-            <div className="permalink">&nbsp; <a href="#">♖</a></div>
+            <div className="permalink">&nbsp; <a href="#"><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
             <div className="blockquote">
               Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
               roots in a
@@ -126,7 +132,7 @@ class Index extends React.Component {
             <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
               everything</a>
             </div>
-            <div className="permalink">&nbsp; <a href="#">♖</a></div>
+            <div className="permalink">&nbsp; <a href="#"><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
             <div className="blockquote">
               Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
               roots in a
@@ -146,11 +152,13 @@ class Index extends React.Component {
             .sm-subheading {
               margin-bottom: -10px;
               color: #C3447A;
+              display: inline-flex;
             }
 
             .sm-subheading-linkblg {
               margin-bottom: 13px;
               color: #C3447A;
+               display: inline-flex;
             }
 
             .menu {
@@ -202,6 +210,8 @@ class Index extends React.Component {
             .filters {
               float: right;
               color: #C3447A;
+              height: 25px;
+              width: 15px;
             }
 
             .blankslate {
@@ -248,6 +258,7 @@ class Index extends React.Component {
 
             p {
               margin-bottom: 15px !important;
+              line-height: 22px;
             }
 
             .permalink {

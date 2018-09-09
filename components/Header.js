@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import '../style.css'
+import * as React from "react";
 
 const Header = () => (
   <div className="container-lg clearfix">
@@ -19,18 +20,13 @@ const Header = () => (
       </div>
     </section>
     <div className="social">
-      <details className="dropdown details-reset details-overlay d-inline-block">
-        <summary className="text-gray p-2 d-inline" aria-haspopup="true">
-          Dropdown
-          <div className="dropdown-caret"></div>
-        </summary>
+      <div className="container-lg clearfix">
+        <div className="col-6 float-left">
+          <span style={{float: 'left'}}><img src="../static/linkedin.svg" alt="Filters" height="13" style={{cursor: 'pointer', float: 'left'}} /></span>
+          <span style={{float: 'right'}}><img src="../static/github.svg" alt="Filters" height="13" style={{cursor: 'pointer', float: 'left'}} /></span>
+        </div>
+      </div>
 
-        <ul className="dropdown-menu dropdown-menu-se">
-          <li><a className="dropdown-item" href="#url">Dropdown item</a></li>
-          <li><a className="dropdown-item" href="#url">Dropdown item</a></li>
-          <li><a className="dropdown-item" href="#url">Dropdown item</a></li>
-        </ul>
-      </details></div>
     <style jsx>{`
       .menu {
         border: none !important;
@@ -49,9 +45,12 @@ const Header = () => (
 
       .social {
         float: right;
-        margin-top: -38px;
+        width: 70px;
+        margin-right: -26px;
+        margin-top: -32px;
       }
     `}</style>
+  </div>
   </div>
 
 )
