@@ -1,4 +1,6 @@
 import '../style.css'
+import Link from "next/link";
+import * as React from "react";
 
 const Footer = () => (
   <section className="footer">
@@ -15,10 +17,10 @@ const Footer = () => (
               <div className="col-6 float-left">
                 <div className="col-6 float-left px-1">
                   <ul>
-                    <li>BLOG</li>
-                    <li>HISTORY</li>
-                    <li>REACT FINTECH</li>
-                    <li>CONTACT</li>
+                    <li><Link style={{color: '#C3447A'}} href="/">BLOG</Link></li>
+                    <li><Link style={{color: '#C3447A'}} href="/history">HISTORY</Link></li>
+                    <li><Link style={{color: '#C3447A'}} href="/fintech">FINTECH</Link></li>
+                    <li><Link style={{color: '#C3447A'}} href="/contact">CONTACT</Link></li>
                   </ul>
                 </div>
               </div>
@@ -30,25 +32,27 @@ const Footer = () => (
             <div className="col-4 float-right p-4">
 
               <ul>
-                <li>2009</li>
-                <li>2008</li>
-                <li>2007</li>
+                <li><a style={{color: '#C3447A'}} href="http://blogspot.fluidnewmedia.com/archives/">2010</a></li>
+                <li><a style={{color: '#C3447A'}} href="http://blogspot.fluidnewmedia.com/archives/">2009</a></li>
+                <li><a style={{color: '#C3447A'}} href="http://blogspot.fluidnewmedia.com/archives/">2008</a></li>
+                <li><a style={{color: '#C3447A'}} href="http://ahadb.com/archives/page/5/">2007</a></li>
               </ul>
             </div>
             <div className="col-4 float-right p-4">
               <ul>
-                <li>2013</li>
-                <li>2013</li>
-                <li>2011</li>
-                <li>2010</li>
+                <li><a style={{color: '#C3447A'}} href="htp://ahadb.com/archives/page/4/">2014</a></li>
+                <li><a style={{color: '#C3447A'}} href="http://ahadb.com/archives/page/4/">2013</a></li>
+                <li><a style={{color: '#C3447A'}} href="http://blogspot.fluidnewmedia.com/2012/12/">2012</a></li>
+                <li><a style={{color: '#C3447A'}} href="http://blogspot.fluidnewmedia.com/2011/10/">2011</a></li>
+
               </ul>
             </div>
-            <div className="col-4 float-right p-4">
+            <div className="col-4 float-right p-4" style={{color: '#C3447A'}}>
               <ul>
-                <li>2017</li>
-                <li>2016</li>
-                <li>2015</li>
-                <li>2014</li>
+                <li><a style={{color: '#C3447A'}} href="http://ahadb.com/archives/">2018</a></li>
+                <li><a style={{color: '#C3447A'}} href="http://ahadb.com/archives/">2017</a></li>
+                <li><a style={{color: '#C3447A'}} href="http://ahadb.com/archives/page/2/">2016</a></li>
+                <li><a style={{color: '#C3447A'}} href="http://ahadb.com/archives/page/3/">2015</a></li>
               </ul>
             </div>
           </div>
@@ -72,7 +76,7 @@ const Footer = () => (
 
             .logo {
               float: left;
-              margin-top: 10px;
+              margin-top: -4px;
               margin-bottom: 0 !important;
             }
 

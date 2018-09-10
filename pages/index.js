@@ -2,10 +2,7 @@ import Layout from '../components/Layout'
 import Link from 'next/link'
 import '../style.css'
 import fetch from 'isomorphic-unfetch'
-import * as React from "react";
-
-
-let postFilter
+import Gist from "react-gist"
 
 // helper text truncate function
 const text_truncate = function(str, length, ending) {
@@ -41,6 +38,7 @@ class Index extends React.Component {
   render() {
     return (
       <Layout>
+
         <div className="container-md clearfix p-3">
           <div className="container-lg clearfix">
             <div className="col-6 float-left p-4 no-pad">
@@ -61,6 +59,7 @@ class Index extends React.Component {
           {this.state.togglePosts ?
 
             <div className="show-posts">
+
               {this.props.posts.map((post) => (
                 <section className="post">
                   <div className="Subhead-description">
@@ -84,6 +83,22 @@ class Index extends React.Component {
             </div>
 
             : '' }
+
+          <section className="post">
+            <div className="Subhead-description">
+              January 01, 2018
+            </div>
+            <div className="Subhead">
+              <div className="Subhead-heading">The No-Configuration JavaScript Bundle Configuration</div>
+              <div className="Subhead-description"><i>The subhead is a subdued header style with a light bottom
+                border</i></div>
+            </div>
+            <p>It's 2018 and really, it just doesn't get better than this. Awesome:</p>
+
+              <Gist id='3ea7ccecc91c9cd390810e5bcad044ec' />
+
+            <p>Parcel does it automagically - of course there's much more under the hood but this is a huge step toward no configuration</p>
+          </section>
 
           { this.state.togglePosts ?
           <div className="sm-subheading-linkblg">
@@ -358,6 +373,7 @@ fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts', myInit).then(res => cons
 Index.getInitialProps = async function() {
   const res = await fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts')
   const data = await res.json()
+  console.log(data)
 
   return {
     posts: data

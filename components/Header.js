@@ -22,8 +22,8 @@ const Header = () => (
     <div className="social">
       <div className="container-lg clearfix">
         <div className="col-6 float-left">
-          <span style={{float: 'left'}}><img src="../static/linkedin.svg" alt="Filters" height="13" style={{cursor: 'pointer', float: 'left'}} /></span>
-          <span style={{float: 'right'}}><img src="../static/github.svg" alt="Filters" height="13" style={{cursor: 'pointer', float: 'left'}} /></span>
+          <span style={{float: 'left'}}><a style={{color: '#C3447A'}} href="https://www.linkedin.com/in/ahadbokhari/"><img src="../static/linkedin.svg" alt="Filters" height="13" style={{cursor: 'pointer', float: 'left'}} /></a></span>
+          <span style={{float: 'right'}}><a style={{color: '#C3447A'}} href="https://github.com/ahadb"><img src="../static/github.svg" alt="Filters" height="13" style={{cursor: 'pointer', float: 'left'}} /></a></span>
         </div>
       </div>
 
@@ -47,7 +47,7 @@ const Header = () => (
         float: right;
         width: 70px;
         margin-right: -26px;
-        margin-top: -32px;
+        margin-top: -35px;
       }
     `}</style>
   </div>
