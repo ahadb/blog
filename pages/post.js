@@ -18,7 +18,7 @@ const Post = (props) => (
             <h2>{props.post.title}</h2>
           </div>
           <section className="page">
-            <div><p>{props.post.body}</p></div>
+            <div dangerouslySetInnerHTML={{__html: props.post.content}} />
 
           </section>
         </div>

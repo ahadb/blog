@@ -29,6 +29,14 @@ class Index extends React.Component {
     this.handlePostsToggle = this.handlePostsToggle.bind(this)
   }
 
+  static async getInitialProps () {
+    const res = await fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts')
+    const data = await res.json()
+    return {
+      posts: data
+    }
+  }
+
   handlePostsToggle() {
     this.setState({
       togglePosts: !this.state.togglePosts
@@ -73,9 +81,7 @@ class Index extends React.Component {
                     </div>
                     <div className="Subhead-description"><i>{post.description}</i></div>
                   </div>
-                  <p>
-                    {text_truncate(post.body, 400)}
-                  </p>
+                  <div dangerouslySetInnerHTML={{__html: text_truncate(post.content, 300)}} />
 
                   <p>&rarr; Read More...</p>
                 </section>
@@ -370,14 +376,14 @@ const myInit = {
 fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts', myInit).then(res => console.log(res))
 
 
-Index.getInitialProps = async function() {
-  const res = await fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts')
-  const data = await res.json()
-  console.log(data)
-
-  return {
-    posts: data
-  }
-}
+// Index.getInitialProps = async function() {
+//   const res = await fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts')
+//   const data = await res.json()
+//   console.log(data)
+//
+//   return {
+//     posts: data
+//   }
+// }
 
 export default Index
