@@ -1,3 +1,4 @@
+import * as React from "react";
 
 const Masthead = () => (
   <div className="blankslate">
@@ -18,11 +19,22 @@ const Masthead = () => (
       </div>
 
       <div className="blog-description">
-        <h2>Ahad Bokhari</h2>
+        <h1>Ahad Bokhari</h1>
         <p>Front end engineer ― I build things. Time has made me appreciate the fact that limitations are mere products
           of crude imaginations and thinking, which forms my belief that “all thing are possible" ... </p>
       </div>
     </div>
+    <style jsx>{`
+      .blog-description {
+              float: left;
+              text-align: left;
+              margin-left: -70px;
+              width: 235px;
+              margin-top: 23px !important;
+              font-size: 15px;
+            }
+
+    `}</style>
 
   </div>
 )

@@ -79,7 +79,7 @@ class Index extends React.Component {
                         <a>{post.title}</a>
                       </Link>
                     </div>
-                    <div className="Subhead-description"><i>{post.description}</i></div>
+                    <div className="Subhead-description">{post.description}</div>
                   </div>
                   <div dangerouslySetInnerHTML={{__html: text_truncate(post.content, 300)}} />
 
@@ -103,7 +103,10 @@ class Index extends React.Component {
 
               <Gist id='3ea7ccecc91c9cd390810e5bcad044ec' />
 
-            <p>Parcel does it automagically - of course there's much more under the hood but this is a huge step toward no configuration</p>
+            <p>Parcel does it automagically - of course there's much more under the hood but this is a huge step toward no configuration.</p>
+            <p>Note: I'd prefer developers
+            to understand their craft from the ground up, therefore understanding how the bundling mechanism works throughout the lifecycle. That said it's a wonderful
+            thing when innovation happens, just be careful to always understand and reflect upon what's happening under the hood.</p>
           </section>
 
           { this.state.togglePosts ?
@@ -115,50 +118,50 @@ class Index extends React.Component {
 
           <section className="post">
             <div className="Subhead-description">
-              January 01, 2018
+              August 03, 2018
             </div>
-            <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
-              everything</a>
+            <div className="linkblog-title"><a href="http://julio-ody.tumblr.com/post/552745613/why-tony-stark-is-better-than-you">Why Tony Stark is Better Than You</a>
             </div>
             <div className="permalink">&nbsp; <a href="#"><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
-            <p>An interesting piece from the pernicuous perspective of Kant Glab:</p>
+            <p>One of my all time favorites:</p>
             <div className="blockquote">
-              Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-              roots in a
-              piece of classical Latin literature from 45 BC, making it over 2000 years old
+              It has nothing to do with the fact he’s rich, famous, or that he gets the ladies. It’s because Tony Stark builds his tech,
+              front-end and back-end. He doesn’t make things that just do the job. They do, but they look awesome while at it.
             </div>
-
+            <p>...definitely worth looking at for instpiration, it's a quick read</p>
           </section>
 
           <section className="post">
             <div className="Subhead-description">
-              January 01, 2018
+              July 28, 2018
             </div>
-            <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
-              everything</a>
+            <div className="linkblog-title"><a href="https://www.infoq.com/news/2018/07/eich-crockford-js-future">Eich and Crockford on the Future of JavaScript: Insight from the Creators of JavaScript and JSON</a>
             </div>
             <div className="permalink">&nbsp; <a href="#"><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
+            <p>Makes complete sense, if you've never read Crockford I highly suggest you read his stuff or watch some of his videos</p>
             <div className="blockquote">
-              Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-              roots in a
-              piece of classical Latin literature from 45 BC, making it over 2000 years old
+              There are many things that Crockford dislikes in JavaScript. For example, he dislikes async/await because it blocks
+              developers from understanding async programming by making it look sync in nature.
             </div>
-            <p>An interesting piece from the pernicuous perspective of Kant Glab:</p>
+            <p>Crockford goes on saying:</p>
+            <div className="blockquote">
+              Crockford was also asked about TypeScript, but has a much less favorable opinion: "It doesn't solve problems that I have." This dismissal of
+              TypeScript was somewhat contradictory with his earlier statement that "interfaces between things are where errors typically happen", as one
+              of the main benefits of TypeScript is to help define interfaces to prevent these errors.
+            </div>
           </section>
 
           <section className="post">
             <div className="Subhead-description">
-              January 01, 2018
+              May 15, 2018
             </div>
-            <div className="linkblog-title"><a href="#">RssHub - A feed aggegator that can generate feeds from pretty much
-              everything</a>
+            <div className="linkblog-title"><a href="http://randsinrepose.com/archives/the-nerd-handbook/">The Nerd Handbook</a>
             </div>
             <div className="permalink">&nbsp; <a href="#"><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
             <div className="blockquote">
-              Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-              roots in a
-              piece of classical Latin literature from 45 BC, making it over 2000 years old
+              A nerd needs a project because a nerd builds stuff. All the time. Those lulls in the conversation over dinner? That’s the nerd working on his project in his head.
             </div>
+            <p>Spot on, some people like Rands have this inane ability to provide exactly the right context</p>
           </section>
 
           <style jsx>{`
@@ -166,7 +169,7 @@ class Index extends React.Component {
             body {
               background-color: #fff;
               font-family: 'Source Sans Pro', sans-serif;
-              font-size: 15px;
+              font-size: 16px !important;
               color: #24292e;
             }
 
@@ -177,7 +180,7 @@ class Index extends React.Component {
             }
 
             .sm-subheading-linkblg {
-              margin-bottom: 13px;
+              margin-bottom: 20px;
               color: #C3447A;
                display: inline-flex;
             }
@@ -255,18 +258,18 @@ class Index extends React.Component {
               font-style: none;
               margin: 11px 0 20px 15px;
               padding-left: 15px;
+              font-size: 14px;
             }
 
             .linkblog-title {
               margin-top: 10px;
-              text-decoration: underline;
               font-size 19px !important;
-              margin-bottom: 8px;
+              margin-bottom: 12px;
             }
 
             .Subhead-description {
-              font-size: 13px !important;
-              color: #A9A9A9 !important;
+              font-size: 13.5px !important;
+              color: #999 !important;
               margin-bottom: -5px;
               margin-top: -5px;
             }
@@ -274,7 +277,7 @@ class Index extends React.Component {
             .Subhead-heading {
               margin-top: 5px;
               margin-bottom: 5px;
-
+              font-size: 24px !important;
             }
 
             p {
@@ -321,15 +324,6 @@ class Index extends React.Component {
               /*margin-left: 100px;*/
               width: 500px;
             }
-
-            .blog-description {
-              float: left;
-              text-align: left;
-              margin-left: -70px;
-              width: 235px;
-              margin-top: 45px;
-            }
-
 
             .UnderlineNav-item.selected {
               font-weight: 600;
