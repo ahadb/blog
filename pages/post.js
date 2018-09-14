@@ -5,18 +5,17 @@ import fetch from "isomorphic-unfetch";
 const Post = (props) => (
     <Layout>
       <div className="container-md clearfix">
-        <div className="breadcrumb">
-          <nav aria-label="Breadcrumb">
-            ~/ history
-          </nav>
-        </div>
 
         <br/>
 
         <div className="container-md clearfix p-3">
+          <div className="Subhead-description">
+            {props.post.date}
+          </div>
           <div className="pagehead">
             <h2>{props.post.title}</h2>
           </div>
+          <div className="Subhead-description">{props.post.description}</div>
           <section className="page">
             <div dangerouslySetInnerHTML={{__html: props.post.content}} />
 
@@ -41,7 +40,7 @@ Post.getInitialProps = async function(context) {
     // fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts/' + id, myInit).then(res => console.log(res))
 
     console.log(id)
-    const res = await fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts/' + id)
+    const res = await fetch('https://ahadb-blog-api-gbxypdtuhv.now.sh/posts/' + id)
     const data = await res.json()
 
     return {

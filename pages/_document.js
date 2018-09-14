@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
       <Head>
         <link rel="stylesheet" href="/_next/static/style.css" />
         <link href="https://unpkg.com/primer/build/build.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" />
           <script src="../static/tween.js" />
       </Head>
       <body>

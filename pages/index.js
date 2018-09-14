@@ -30,10 +30,16 @@ class Index extends React.Component {
   }
 
   static async getInitialProps () {
-    const res = await fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts')
+    const res = await fetch('https://ahadb-blog-api-gbxypdtuhv.now.sh/posts')
+    const resLink = await fetch('https://ahadb-blog-api-gbxypdtuhv.now.sh/links')
+    const resCode = await fetch('https://ahadb-blog-api-gbxypdtuhv.now.sh/code')
     const data = await res.json()
+    const linkData = await resLink.json()
+    const codeData = await resCode.json()
     return {
-      posts: data
+      posts: data,
+      links: linkData,
+      code: codeData
     }
   }
 
@@ -54,11 +60,14 @@ class Index extends React.Component {
                   <img src="../static/paragraph.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} />
                   {this.state.togglePosts ?
                      <h4>RECENT POSTS</h4>
-                   : <h4>LINKBLOG</h4> }
+                   : <h4>CODE & LINKS</h4> }
                 </div>
             </div>
             <div className="col-6 float-left p-4 no-pad">
-              <div className="filters"><a onClick={this.handlePostsToggle}><img src="../static/filter.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
+              <div className="filters"><a onClick={this.handlePostsToggle}>
+                <img src="../static/filter.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} />
+              </a>
+              </div>
             </div>
           </div>
 
@@ -71,7 +80,7 @@ class Index extends React.Component {
               {this.props.posts.map((post) => (
                 <section className="post">
                   <div className="Subhead-description">
-                    January 01, 2018
+                    {post.date}
                   </div>
                   <div className="Subhead">
                     <div className="Subhead-heading">
@@ -83,86 +92,62 @@ class Index extends React.Component {
                   </div>
                   <div dangerouslySetInnerHTML={{__html: text_truncate(post.content, 300)}} />
 
-                  <p>&rarr; Read More...</p>
+                  <p><Link as={`/p/${post._id}`} href={`/post?id=${post._id}`}>
+                    <a>&rarr; Read More...</a>
+                  </Link></p>
                 </section>
               ))}
             </div>
 
             : '' }
 
+          {this.props.code.map((code) => (
           <section className="post">
             <div className="Subhead-description">
-              January 01, 2018
+              {code.date}
             </div>
             <div className="Subhead">
-              <div className="Subhead-heading">The No-Configuration JavaScript Bundle Configuration</div>
-              <div className="Subhead-description"><i>The subhead is a subdued header style with a light bottom
-                border</i></div>
+              <div className="Subhead-heading">{code.title}</div>
+              <div className="Subhead-description"><i>{code.description}</i></div>
             </div>
-            <p>It's 2018 and really, it just doesn't get better than this. Awesome:</p>
+            <p>{code.preCodeSnippet}</p>
 
-              <Gist id='3ea7ccecc91c9cd390810e5bcad044ec' />
+              <Gist id={code.gistId} />
 
-            <p>Parcel does it automagically - of course there's much more under the hood but this is a huge step toward no configuration.</p>
-            <p>Note: I'd prefer developers
-            to understand their craft from the ground up, therefore understanding how the bundling mechanism works throughout the lifecycle. That said it's a wonderful
-            thing when innovation happens, just be careful to always understand and reflect upon what's happening under the hood.</p>
-          </section>
+            <p>{code.postCodeSnippet}</p>
+            </section>
+            ))}
 
-          { this.state.togglePosts ?
           <div className="sm-subheading-linkblg">
             <img src="../static/paragraph.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} />
             <h4>LINKBLOG</h4>
           </div>
+
+          { this.state.togglePosts ?
+            <div className="show-posts">
+              {this.props.links.map((link) => (
+
+                <section className="post">
+                  <div className="Subhead-description">
+                    {link.date}
+                  </div>
+                  <div className="linkblog-title"><a href={link.externalUrl}>{link.title}</a>
+                  </div>
+                  <div className="permalink">&nbsp;
+                    <Link as={`/l/${link._id}`} href={`/link?id=${link._id}`}>
+                      <a><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a>
+                    </Link>
+                  </div>
+                  <p>{link.preSnippet}</p>
+                  <div className="blockquote">
+                    {link.blockquote}
+                  </div>
+                  <p>{link.postSnippet}</p>
+                </section>
+
+                ))}
+          </div>
             : '' }
-
-          <section className="post">
-            <div className="Subhead-description">
-              August 03, 2018
-            </div>
-            <div className="linkblog-title"><a href="http://julio-ody.tumblr.com/post/552745613/why-tony-stark-is-better-than-you">Why Tony Stark is Better Than You</a>
-            </div>
-            <div className="permalink">&nbsp; <a href="#"><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
-            <p>One of my all time favorites:</p>
-            <div className="blockquote">
-              It has nothing to do with the fact he’s rich, famous, or that he gets the ladies. It’s because Tony Stark builds his tech,
-              front-end and back-end. He doesn’t make things that just do the job. They do, but they look awesome while at it.
-            </div>
-            <p>...definitely worth looking at for instpiration, it's a quick read</p>
-          </section>
-
-          <section className="post">
-            <div className="Subhead-description">
-              July 28, 2018
-            </div>
-            <div className="linkblog-title"><a href="https://www.infoq.com/news/2018/07/eich-crockford-js-future">Eich and Crockford on the Future of JavaScript: Insight from the Creators of JavaScript and JSON</a>
-            </div>
-            <div className="permalink">&nbsp; <a href="#"><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
-            <p>Makes complete sense, if you've never read Crockford I highly suggest you read his stuff or watch some of his videos</p>
-            <div className="blockquote">
-              There are many things that Crockford dislikes in JavaScript. For example, he dislikes async/await because it blocks
-              developers from understanding async programming by making it look sync in nature.
-            </div>
-            <p>Crockford goes on saying:</p>
-            <div className="blockquote">
-              Crockford was also asked about TypeScript, but has a much less favorable opinion: "It doesn't solve problems that I have." This dismissal of
-              TypeScript was somewhat contradictory with his earlier statement that "interfaces between things are where errors typically happen", as one
-              of the main benefits of TypeScript is to help define interfaces to prevent these errors.
-            </div>
-          </section>
-
-          <section className="post">
-            <div className="Subhead-description">
-              May 15, 2018
-            </div>
-            <div className="linkblog-title"><a href="http://randsinrepose.com/archives/the-nerd-handbook/">The Nerd Handbook</a>
-            </div>
-            <div className="permalink">&nbsp; <a href="#"><img src="../static/link.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} /></a></div>
-            <div className="blockquote">
-              A nerd needs a project because a nerd builds stuff. All the time. Those lulls in the conversation over dinner? That’s the nerd working on his project in his head.
-            </div>
-            <p>Spot on, some people like Rands have this inane ability to provide exactly the right context</p>
-          </section>
 
           <style jsx>{`
 
@@ -171,6 +156,11 @@ class Index extends React.Component {
               font-family: 'Source Sans Pro', sans-serif;
               font-size: 16px !important;
               color: #24292e;
+            }
+
+            h1 {
+             font-size: 32px;
+             font-weight: 700 !important;
             }
 
             .sm-subheading {
@@ -235,7 +225,8 @@ class Index extends React.Component {
               float: right;
               color: #C3447A;
               height: 25px;
-              width: 15px;
+
+              font-size: 14px;
             }
 
             .blankslate {
@@ -265,6 +256,7 @@ class Index extends React.Component {
               margin-top: 10px;
               font-size 19px !important;
               margin-bottom: 12px;
+              font-weight: 600;
             }
 
             .Subhead-description {
@@ -277,12 +269,15 @@ class Index extends React.Component {
             .Subhead-heading {
               margin-top: 5px;
               margin-bottom: 5px;
-              font-size: 24px !important;
+              font-size: 22px !important;
+              font-weight: 600;
             }
 
             p {
               margin-bottom: 15px !important;
               line-height: 22px;
+              color: #444 !important;
+              line-height: 26px;
             }
 
             .permalink {
@@ -353,31 +348,19 @@ class Index extends React.Component {
 
     `}</style>
 
+
         </div>
       </Layout>
     )
   }
-
 }
 
-
-const myInit = {
-  method: 'GET',
-  mode: 'cors',
-  credentials: 'include'
-}
-
-fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts', myInit).then(res => console.log(res))
-
-
-// Index.getInitialProps = async function() {
-//   const res = await fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts')
-//   const data = await res.json()
-//   console.log(data)
-//
-//   return {
-//     posts: data
-//   }
+// const myInit = {
+//   method: 'GET',
+//   mode: 'cors',
+//   credentials: 'include'
 // }
+//
+// fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts', myInit).then(res => console.log(res))
 
 export default Index

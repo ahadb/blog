@@ -13,7 +13,7 @@ const Header = () => (
           <div className="UnderlineNav-body">
             <Link href="/"><a role="tab" title="Item 1" className="UnderlineNav-item selected">BLOG</a></Link>
             <Link href="/history"><a role="tab" title="Item 2" className="UnderlineNav-item">HISTORY</a></Link>
-            <Link href="/fintech"><a role="tab" title="Item 3" className="UnderlineNav-item">REACT & FINTECH</a></Link>
+            <Link href="/jsinfin"><a role="tab" title="Item 3" className="UnderlineNav-item">JS-IN-FIN</a></Link>
             <Link href="/contact"><a role="tab" title="Item 4" className="UnderlineNav-item">CONTACT</a></Link>
           </div>
         </nav>

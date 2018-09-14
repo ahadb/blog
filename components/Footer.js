@@ -17,10 +17,10 @@ const Footer = () => (
               <div className="col-6 float-left">
                 <div className="col-6 float-left px-1">
                   <ul>
-                    <li><Link style={{color: '#C3447A'}} href="/">BLOG</Link></li>
-                    <li><Link style={{color: '#C3447A'}} href="/history">HISTORY</Link></li>
-                    <li><Link style={{color: '#C3447A'}} href="/fintech">FINTECH</Link></li>
-                    <li><Link style={{color: '#C3447A'}} href="/contact">CONTACT</Link></li>
+                    <li><Link style={{color: '#C3447A'}} href="/"><a>BLOG</a></Link></li>
+                    <li><Link style={{color: '#C3447A'}} href="/history"><a>HISTORY</a></Link></li>
+                    <li><Link style={{color: '#C3447A'}} href="/fintech"><a>FINTECH</a></Link></li>
+                    <li><Link style={{color: '#C3447A'}} href="/contact"><a>CONTACT</a></Link></li>
                   </ul>
                 </div>
               </div>
@@ -28,7 +28,6 @@ const Footer = () => (
           </div>
 
           <div className="col-4 float-left">
-            <div className="archives"><h4>ARCHIVES</h4></div>
             <div className="col-4 float-right p-4">
 
               <ul>
@@ -57,6 +56,7 @@ const Footer = () => (
             </div>
           </div>
           <div className="col-4 float-left p-4">
+            LinkedIn | Github <br />
             @ Copyright 2018 - 2001 All rights reserved
 
           </div>
@@ -67,11 +67,14 @@ const Footer = () => (
     <style jsx>{`
             footer {
               height: 150px;
+              font-size: 14px;
+              color: black !important;
             }
 
             .footer {
               background: #fafbfc;
               border-top: 1px solid #eaeaea;
+              color: black !important;
             }
 
             .logo {
@@ -102,6 +105,10 @@ const Footer = () => (
               margin-top: 20px;
               margin-bottom: -20px;
               text-align: center;
+            }
+
+            a {
+              color: #C3447A !important;
             }
 
     `}</style>
