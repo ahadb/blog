@@ -137,3 +137,7 @@ var words = [
 //   event.preventDefault();
 //   input.innerText += String.fromCharCode(event.which).toLowerCase();
 // });
+
+const page = window.location.path
+
+console.log(page)

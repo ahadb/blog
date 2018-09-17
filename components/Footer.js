@@ -56,8 +56,10 @@ const Footer = () => (
             </div>
           </div>
           <div className="col-4 float-left p-4">
-            LinkedIn | Github <br />
-            @ Copyright 2018 - 2001 All rights reserved
+            <span style={{float: 'left'}}><a style={{color: '#C3447A'}} href="https://github.com/ahadb"><i className="fab fa-github" style={{cursor: 'pointer', float: 'left', color: '#808080'}}></i></a></span>
+            <span style={{float: 'left', marginLeft: '5px'}}><a style={{color: '#C3447A'}} href="https://www.linkedin.com/in/ahadbokhari/"><i className="fab fa-linkedin-in" style={{cursor: 'pointer', float: 'left', color: '#808080', marginLeft: '5px'}}></i></a></span> <br />
+
+            <div className="footer-copyright">@ Copyright 2018 - 2001 All rights reserved</div>
 
           </div>
         </div>
@@ -109,6 +111,10 @@ const Footer = () => (
 
             a {
               color: #C3447A !important;
+            }
+
+            .footer-copyright {
+              font-size: 13px;
             }
 
     `}</style>

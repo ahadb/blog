@@ -12,15 +12,24 @@ const Post = (props) => (
           <div className="Subhead-description">
             {props.post.date}
           </div>
-          <div className="pagehead">
-            <h2>{props.post.title}</h2>
+          <div className="Subhead">
+            <div className="Subhead-heading">{props.post.title}</div>
+            <div className="Subhead-description"><i>{props.post.description}</i></div>
           </div>
-          <div className="Subhead-description">{props.post.description}</div>
           <section className="page">
             <div dangerouslySetInnerHTML={{__html: props.post.content}} />
 
           </section>
         </div>
+
+        <style jsx>{`
+        .Subhead-heading {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 22px !important;
+        font-weight: 600;
+      }
+      `}</style>
 
       </div>
 
@@ -40,7 +49,7 @@ Post.getInitialProps = async function(context) {
     // fetch('https://ahadb-blog-api-dkortsjqlj.now.sh/posts/' + id, myInit).then(res => console.log(res))
 
     console.log(id)
-    const res = await fetch('https://ahadb-blog-api-gbxypdtuhv.now.sh/posts/' + id)
+    const res = await fetch('https://ahadb-blog-api-mhmlanvsdp.now.sh/posts/' + id)
     const data = await res.json()
 
     return {

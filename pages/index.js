@@ -30,9 +30,9 @@ class Index extends React.Component {
   }
 
   static async getInitialProps () {
-    const res = await fetch('https://ahadb-blog-api-gbxypdtuhv.now.sh/posts')
-    const resLink = await fetch('https://ahadb-blog-api-gbxypdtuhv.now.sh/links')
-    const resCode = await fetch('https://ahadb-blog-api-gbxypdtuhv.now.sh/code')
+    const res = await fetch('https://ahadb-blog-api-mhmlanvsdp.now.sh/posts')
+    const resLink = await fetch('https://ahadb-blog-api-mhmlanvsdp.now.sh/links')
+    const resCode = await fetch('https://ahadb-blog-api-mhmlanvsdp.now.sh/code')
     const data = await res.json()
     const linkData = await resLink.json()
     const codeData = await resCode.json()
@@ -65,7 +65,7 @@ class Index extends React.Component {
             </div>
             <div className="col-6 float-left p-4 no-pad">
               <div className="filters"><a onClick={this.handlePostsToggle}>
-                <img src="../static/filter.svg" alt="Filters" height="13" style={{cursor: 'pointer'}} />
+                <i className="fas fa-filter" style={{color: '#808080', cursor: 'pointer'}}></i>
               </a>
               </div>
             </div>
@@ -107,7 +107,11 @@ class Index extends React.Component {
               {code.date}
             </div>
             <div className="Subhead">
-              <div className="Subhead-heading">{code.title}</div>
+              <div className="Subhead-heading">
+                <Link as={`/c/${code._id}`} href={`/code?id=${code._id}`}>
+                  <a>{code.title}</a>
+                </Link>
+              </div>
               <div className="Subhead-description"><i>{code.description}</i></div>
             </div>
             <p>{code.preCodeSnippet}</p>
@@ -156,6 +160,10 @@ class Index extends React.Component {
               font-family: 'Source Sans Pro', sans-serif;
               font-size: 16px !important;
               color: #24292e;
+            }
+
+            section {
+             line-height: 26px;
             }
 
             h1 {

@@ -6,7 +6,7 @@ const Header = () => (
   <div className="container-lg clearfix">
     <section className="menu">
       <div className="logo">
-        <img src="../static/avatar.png" height="35" width="35" />
+        <Link href="/"><img style = {{cursor: 'pointer'}} src="../static/avatar.png" height="35" width="35" /></Link>
       </div>
       <div className="menu-items">
         <nav className="UnderlineNav">
@@ -22,8 +22,8 @@ const Header = () => (
     <div className="social">
       <div className="container-lg clearfix">
         <div className="col-6 float-left">
-          <span style={{float: 'left'}}><a style={{color: '#C3447A'}} href="https://www.linkedin.com/in/ahadbokhari/"><img src="../static/linkedin.svg" alt="Filters" height="13" style={{cursor: 'pointer', float: 'left'}} /></a></span>
-          <span style={{float: 'right'}}><a style={{color: '#C3447A'}} href="https://github.com/ahadb"><img src="../static/github.svg" alt="Filters" height="13" style={{cursor: 'pointer', float: 'left'}} /></a></span>
+          <span style={{float: 'left'}}><a style={{color: '#C3447A'}} href="https://github.com/ahadb"><i className="fab fa-github" style={{cursor: 'pointer', float: 'left', color: '#808080'}}></i></a></span>
+          <span style={{float: 'right'}}><a style={{color: '#C3447A'}} href="https://www.linkedin.com/in/ahadbokhari/"><i className="fab fa-linkedin-in" style={{cursor: 'pointer', float: 'left', color: '#808080', marginLeft: '5px'}}></i></a></span>
         </div>
       </div>
 
@@ -45,8 +45,8 @@ const Header = () => (
 
       .social {
         float: right;
-        width: 70px;
-        margin-right: -26px;
+        width: 80px;
+        margin-right: -90px;
         margin-top: -35px;
       }
     `}</style>
