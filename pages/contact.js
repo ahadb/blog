@@ -9,7 +9,7 @@ export default () => (
         </div>
         <section class="page">
           <p>
-            Feel free to contact me at: ahadbokhari@gmail.com
+            Feel free to contact me at: <a href="mailto:ahadbokhari@gmail.com?Subject=Hi%20there" target="_top">ahadbokhari@gmail.com</a>
           </p>
 
         </section>

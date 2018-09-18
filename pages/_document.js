@@ -14,16 +14,10 @@ export default class MyDocument extends Document {
               integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
               crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" />
-          <script src="../static/tween.js" />
       </Head>
       <body>
       <Main />
       <NextScript />
-
-      <script src="../static/terminal.js" />
-      <script>
-        init()
-      </script>
       </body>
       </html>
     )

@@ -127,7 +127,7 @@ class Index extends React.Component {
             <h4>LINKBLOG</h4>
           </div>
 
-          { this.state.togglePosts ?
+
             <div className="show-posts">
               {this.props.links.map((link) => (
 
@@ -151,7 +151,7 @@ class Index extends React.Component {
 
                 ))}
           </div>
-            : '' }
+       
 
           <style jsx>{`
 

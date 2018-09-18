@@ -7,21 +7,14 @@ const Masthead = () => (
     <div className="container-md clearfix">
       <div className="console">
         <div id="terminal">
-          <div className="block table">
-            <div className="row"><span style={{color: '#33ff00'}}>$</span> ls -la *fn() | while (life.true) => meaningOfLife</div>
-            <div className="row">&nbsp;</div>
-          </div>
-          <div id="typer" className="block table">
-
-          </div>
-          <div className="cursor">guest<span style={{color: '#33ff00'}}>@ahadb:$</span> <span className="input"></span><span
-            className="pulse">_</span></div>
+          <img style = {{cursor: 'pointer'}} src="../static/terminal.png" />
         </div>
+
       </div>
 
       <div className="blog-description">
         <Link href="/"><h1><a className="blog-heading">Ahad Bokhari</a></h1></Link>
-        <p>Front end engineer ― I like building software. Get <a href="#" style={{color: '#C3447A', fontWeight: 600}}>to know me</a>, find <a href="#" style={{color: '#C3447A', fontWeight: 600}}>me on Github</a>, or read onwards:</p>
+        <p>Front end engineer ― I like building software. Get <Link href="/history"><a style={{color: '#C3447A', fontWeight: 600}}>to know me</a></Link>, find <a href="https://github.com/ahadb" style={{color: '#C3447A', fontWeight: 600}}>me on Github</a>, or read onwards:</p>
 
         <ul>
           <li><div className="ex-icon"><i className="fas fa-external-link-alt"></i></div><div className="link"><a style={{color: '#C3447A', fontWeight: 600}} href="http://ahadb.com/2016/10/12/async-js/">Asynchronous JavaScript</a></div></li>
@@ -29,7 +22,7 @@ const Masthead = () => (
           <li><div className="ex-icon"><i className="fas fa-external-link-alt"></i></div><div className="link"><a style={{color: '#C3447A', fontWeight: 600}} href="http://ahadb.com/2007/10/22/visicalc/">VisiCalc</a></div></li>
         </ul>
       </div>
-    </div>
+
     <style jsx>{`
     a {
       color: #24292e;
@@ -77,7 +70,7 @@ const Masthead = () => (
       }
 
     `}</style>
-
+      </div>
   </div>
 )
 
